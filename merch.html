@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>steak club &middot; merch</title>
+<meta name="description" content="steak club merch. coming soon.">
+<meta property="og:title" content="steak club &middot; merch">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%238B1A1A'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-family='Georgia,serif' font-size='22' font-weight='500' font-style='italic' fill='%23EDE5D3' letter-spacing='-1'%3ESC%3C/text%3E%3C/svg%3E">
+  <meta property="og:description" content="coming soon.">
+<style>
+  :root {
+    --cream: #EDE5D3;
+    --ink: #1a1a1a;
+    --oxblood: #8B1A1A;
+    --muted: #6b6b6b;
+    --line: rgba(0,0,0,0.15);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+  a:hover { color: var(--oxblood); }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 48px 32px 80px; }
+
+  header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 24px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  header .title { font-weight: 500; }
+  header .meta { color: var(--muted); font-size: 12px; }
+
+  nav.main-nav {
+    display: flex; gap: 20px;
+    margin-bottom: 48px;
+    font-size: 13px;
+  }
+  nav.main-nav a {
+    text-decoration: none;
+    color: var(--muted);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+  nav.main-nav a:hover { color: var(--oxblood); }
+  nav.main-nav a.current {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+
+  .coming-soon {
+    padding: 80px 0 60px;
+    max-width: 520px;
+  }
+  .coming-soon .hook {
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .coming-soon .sub {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 32px;
+  }
+  .coming-soon p {
+    margin-bottom: 12px;
+  }
+  .coming-soon p.muted {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 24px;
+  }
+
+  .notify-form {
+    margin-top: 40px;
+    padding: 24px;
+    background: rgba(0,0,0,0.02);
+    border: 1px dotted var(--line);
+  }
+  .notify-form .form-title {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--muted); margin-bottom: 12px;
+  }
+  .notify-form p {
+    color: var(--muted); font-size: 13px; margin-bottom: 16px;
+  }
+  .notify-form .row {
+    display: flex; gap: 8px;
+  }
+  .notify-form input {
+    flex: 1;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--ink);
+    outline: none;
+    border-radius: 0;
+  }
+  .notify-form input:focus { border-color: var(--oxblood); }
+  .notify-form button {
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 0;
+    white-space: nowrap;
+  }
+  .notify-form button:hover:not(:disabled) { background: var(--oxblood); }
+  .notify-form button:disabled { opacity: 0.5; cursor: wait; }
+  .notify-confirm {
+    display: none;
+    margin-top: 12px;
+    color: var(--oxblood);
+    font-style: italic;
+    font-size: 13px;
+  }
+  .notify-confirm.show { display: block; }
+
+  footer {
+    margin-top: 80px; padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: var(--muted);
+  }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 700px) {
+    .wrap { padding: 32px 20px 60px; }
+    header { flex-direction: column; gap: 6px; align-items: flex-start; }
+    footer { flex-direction: column; gap: 8px; }
+    .notify-form .row { flex-direction: column; }
+    .notify-form button { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <svg width="28" height="28" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+          <rect x="0" y="0" width="40" height="40" fill="#8B1A1A"/>
+          <text x="20" y="28" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="500" font-style="italic" fill="#EDE5D3" letter-spacing="-1">SC</text>
+        </svg>
+        <span class="title">steak club</span>
+      </div>
+    <span class="meta">ranked quarterly since 2018 &middot; nyc</span>
+  </header>
+
+  <nav class="main-nav">
+    <a href="/">the list</a>
+    <a href="/merch.html" class="current">merch</a>
+    <a href="/apply.html">apply</a>
+  </nav>
+
+  <section class="coming-soon">
+    <p class="hook">coming soon.</p>
+    <p class="sub">caps, tees, and other things you'll want.</p>
+    <p>we're working on it.</p>
+    <p>drop your email and we'll tell you when it's ready.</p>
+    <p class="muted">no spam. just the drop.</p>
+  </section>
+
+  <div class="notify-form">
+    <p class="form-title">notify me when it drops</p>
+    <p>be first in line. members only.</p>
+    <div class="row">
+      <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+      <button id="notify-submit">notify me</button>
+    </div>
+    <p class="notify-confirm" id="notify-confirm">on the list. we'll be in touch.</p>
+  </div>
+
+  <footer>
+    <span>&copy; steak club 2018 &mdash; 2026</span>
+    <span><a href="https://instagram.com/steakclubnyc">@steakclubnyc</a> &middot; <a href="/apply.html">apply</a></span>
+  </footer>
+
+</div>
+
+<script>
+  const NOTIFY_WEBHOOK = ''; // wire up later
+
+  const emailInput = document.getElementById('email');
+  const submitBtn = document.getElementById('notify-submit');
+  const confirmEl = document.getElementById('notify-confirm');
+
+  submitBtn.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    if (!email || !email.includes('@')) {
+      emailInput.focus();
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'sending...';
+
+    const payload = {
+      email: email,
+      source: 'merch_notify',
+      submitted_at: new Date().toISOString(),
+    };
+
+    try {
+      if (NOTIFY_WEBHOOK) {
+        await fetch(NOTIFY_WEBHOOK, {
+          method: 'POST', mode: 'no-cors',
+          body: JSON.stringify(payload),
+        });
+      } else {
+        console.log('email signup (not saved, webhook not configured):', payload);
+      }
+    } catch (err) {
+      console.error('signup error:', err);
+    }
+
+    emailInput.value = '';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'notify me';
+    confirmEl.classList.add('show');
+    setTimeout(() => confirmEl.classList.remove('show'), 4000);
+  });
+
+  emailInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') submitBtn.click();
+  });
+</script>
+
+</body>
+</html>
