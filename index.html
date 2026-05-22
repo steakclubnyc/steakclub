@@ -1,12 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>steak club</title>
-<meta name="description" content="a running list of nyc steakhouses, ranked monthly since 2017.">
+<meta name="description" content="a running list of nyc steakhouses, ranked quarterly since 2018.">
 <meta property="og:title" content="steak club">
 <meta property="og:description" content="the spreadsheet got a domain.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%238B1A1A'/%3E%3Ctext x='20' y='28' text-anchor='middle' font-family='Georgia,serif' font-size='22' font-weight='500' font-style='italic' fill='%23EDE5D3' letter-spacing='-1'%3ESC%3C/text%3E%3C/svg%3E">
 <style>
   :root {
     --cream: #EDE5D3;
@@ -31,11 +33,28 @@
 
   header {
     display: flex; justify-content: space-between; align-items: baseline;
-    margin-bottom: 56px; padding-bottom: 16px;
+    margin-bottom: 24px; padding-bottom: 16px;
     border-bottom: 1px solid var(--line);
   }
   header .title { font-weight: 500; }
   header .meta { color: var(--muted); font-size: 12px; }
+
+  nav.main-nav {
+    display: flex; gap: 20px;
+    margin-bottom: 48px;
+    font-size: 13px;
+  }
+  nav.main-nav a {
+    text-decoration: none;
+    color: var(--muted);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+  nav.main-nav a:hover { color: var(--oxblood); }
+  nav.main-nav a.current {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
 
   .intro { margin-bottom: 56px; max-width: 600px; }
   .intro .hook { font-size: 16px; margin-bottom: 8px; font-weight: 500; }
@@ -56,6 +75,26 @@
   }
   .controls button:hover { background: rgba(0,0,0,0.04); }
   .controls button.active { background: var(--ink); color: var(--cream); }
+  .controls select {
+    background: transparent;
+    border: 1px solid var(--line);
+    padding: 4px 24px 4px 10px;
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--ink);
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%236b6b6b' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+  .controls select:hover { background-color: rgba(0,0,0,0.04); }
+  .controls select.active { background-color: var(--ink); color: var(--cream);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23EDE5D3' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+  }
+
 
   table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 64px; }
   thead th {
@@ -143,10 +182,8 @@
   }
 
   .loading {
-    padding: 24px 12px;
-    color: var(--muted);
-    font-style: italic;
-    text-align: center;
+    padding: 24px 12px; color: var(--muted);
+    font-style: italic; text-align: center;
   }
 
   footer {
@@ -173,21 +210,33 @@
 <div class="wrap">
 
   <header>
-    <span class="title">steak club</span>
-    <span class="meta">ranked monthly since 2017 &middot; nyc</span>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <svg width="28" height="28" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+          <rect x="0" y="0" width="40" height="40" fill="#8B1A1A"/>
+          <text x="20" y="28" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="500" font-style="italic" fill="#EDE5D3" letter-spacing="-1">SC</text>
+        </svg>
+        <span class="title">steak club</span>
+      </div>
+    <span class="meta">ranked quarterly since 2018 &middot; nyc</span>
   </header>
+
+  <nav class="main-nav">
+    <a href="/" class="current">the list</a>
+    <a href="/merch.html">merch</a>
+    <a href="/apply.html">apply</a>
+  </nav>
 
   <section class="intro">
     <p class="hook">the spreadsheet got a domain.</p>
-    <p class="sub">a running list since 2017. ranked monthly.</p>
-    <p>three of us moved to new york from NZ in our twenties. we started ranking steakhouses.</p>
-    <p>we've been doing it every month since. It used to live in a notes app. </p>
+    <p class="sub">a running list since 2018. ranked quarterly.</p>
+    <p>three of us moved to new york at twenty-one. we started ranking steakhouses out of five.</p>
+    <p>we've been doing it every month since. the list lived in a spreadsheet for ten years.</p>
     <p>now it lives here.</p>
-    <p class="last"><a href="mailto:thesteakclubnyc@gmail.com">apply to a dinner &rarr;</a></p>
+    <p class="last"><a href="/apply.html">apply to a dinner &rarr;</a></p>
   </section>
 
   <div class="section-header">
-    <span>the list. updated monthly.</span>
+    <span>the list. updated quarterly.</span>
     <span id="count">&mdash;</span>
   </div>
 
@@ -195,6 +244,9 @@
     <button class="active" data-sort="rank">ranked</button>
     <button data-sort="date">recent</button>
     <button data-sort="name">a&ndash;z</button>
+    <select id="hood-filter">
+      <option value="">all neighborhoods</option>
+    </select>
   </div>
 
   <table id="list">
@@ -263,24 +315,21 @@
   </div>
 
   <footer>
-    <span>&copy; steak club 2015 &mdash; 2026</span>
-    <span><a href="https://instagram.com/steakclubnyc">@steakclubnyc</a> &middot; <a href="mailto:thesteakclubnyc@gmail.com">apply</a></span>
+    <span>&copy; steak club 2018 &mdash; 2026</span>
+    <span><a href="https://instagram.com/steakclubnyc">@steakclubnyc</a> &middot; <a href="/apply.html">apply</a></span>
   </footer>
 
 </div>
 
 <script>
-  // CONFIG — change these if needed
   const SHEET_ID = '15HnGPHR_Hb7wY-rRL8ZHSXqGAdAUjMTmT3xOK3TVjvk';
-  const SUBMISSION_WEBHOOK = ''; // paste your Google Apps Script URL here once set up
+  const SUBMISSION_WEBHOOK = '';
 
-  // Fetch a tab from Google Sheets using the gviz endpoint (no API key needed)
   async function fetchSheet(tabName) {
     const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(tabName)}`;
     try {
       const res = await fetch(url);
       const text = await res.text();
-      // Google wraps the JSON in a JS function call. Strip it out.
       const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
       const cols = json.table.cols.map(c => c.label || c.id);
       const rows = json.table.rows.map(r => {
@@ -297,10 +346,10 @@
     }
   }
 
-  // STATE
   let reviewed = [];
   let requested = [];
   let sortBy = 'rank';
+  let filterHood = '';
 
   const body = document.getElementById('body');
   const count = document.getElementById('count');
@@ -309,7 +358,10 @@
 
   function renderReviewed() {
     const published = reviewed.filter(r => String(r.published).toLowerCase().trim() === 'yes');
-    let sorted = [...published];
+    let filtered = filterHood
+      ? published.filter(r => String(r.neighborhood).trim() === filterHood)
+      : published;
+    let sorted = [...filtered];
     if (sortBy === 'rank') sorted.sort((a, b) => Number(b.score) - Number(a.score));
     if (sortBy === 'name') sorted.sort((a, b) => String(a.name).localeCompare(String(b.name)));
     if (sortBy === 'date') sorted.sort((a, b) => new Date('1 ' + b.date) - new Date('1 ' + a.date));
@@ -321,7 +373,7 @@
         <tr>
           <td class="rank">${sortBy === 'rank' ? String(i + 1).padStart(2, '0') : ''}</td>
           <td class="name">${escapeHtml(r.name)}</td>
-          <td class="hood">${escapeHtml(r.hood)}</td>
+          <td class="hood">${escapeHtml(r.neighborhood)}</td>
           <td class="score">${Number(r.score).toFixed(1)} / 5</td>
           <td class="date">${escapeHtml(r.date)}</td>
           <td class="note">${escapeHtml(r.note)}</td>
@@ -344,7 +396,7 @@
         return `
           <tr>
             <td class="name">${escapeHtml(r.name)}</td>
-            <td class="hood">${escapeHtml(r.hood)}</td>
+            <td class="hood">${escapeHtml(r.neighborhood)}</td>
             <td class="votes">
               <button class="${hasVoted ? 'voted' : ''}" data-name="${escapeAttr(r.name)}" ${hasVoted ? 'disabled' : ''}>
                 &uarr; ${Number(r.votes) || 0}
@@ -381,7 +433,6 @@
     return String(s || '').replace(/"/g, '&quot;');
   }
 
-  // SORTING
   document.querySelectorAll('.controls button').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
@@ -391,7 +442,6 @@
     });
   });
 
-  // SUGGEST FORM
   const toggle = document.getElementById('suggest-toggle');
   const form = document.getElementById('suggest-form');
   const row = document.getElementById('suggest-row');
@@ -464,7 +514,7 @@
 
     const payload = {
       name: nameInput.value.trim(),
-      hood: hoodInput.value.trim(),
+      neighborhood: hoodInput.value.trim(),
       why: whyInput.value.trim(),
       submitted_at: new Date().toISOString(),
     };
@@ -472,12 +522,10 @@
     try {
       if (SUBMISSION_WEBHOOK) {
         await fetch(SUBMISSION_WEBHOOK, {
-          method: 'POST',
-          mode: 'no-cors',
+          method: 'POST', mode: 'no-cors',
           body: JSON.stringify(payload),
         });
       } else {
-        // No webhook yet — just log it. Submissions still happen, just don't save yet.
         console.log('submission (not saved, webhook not configured):', payload);
       }
     } catch (err) {
@@ -496,7 +544,21 @@
     }, 4000);
   });
 
-  // LOAD DATA
+  function populateHoodFilter() {
+    const select = document.getElementById('hood-filter');
+    const published = reviewed.filter(r => String(r.published).toLowerCase().trim() === 'yes');
+    const hoods = [...new Set(published.map(r => String(r.neighborhood).trim()).filter(Boolean))].sort();
+    // Keep "all neighborhoods" option, append the rest
+    select.innerHTML = '<option value="">all neighborhoods</option>' +
+      hoods.map(h => `<option value="${escapeAttr(h)}">${escapeHtml(h)}</option>`).join('');
+  }
+
+  document.getElementById('hood-filter').addEventListener('change', (e) => {
+    filterHood = e.target.value;
+    e.target.classList.toggle('active', !!filterHood);
+    renderReviewed();
+  });
+
   async function load() {
     const [r1, r2] = await Promise.all([
       fetchSheet('Reviewed'),
@@ -504,6 +566,7 @@
     ]);
     reviewed = r1;
     requested = r2;
+    populateHoodFilter();
     renderReviewed();
     renderRequested();
   }
